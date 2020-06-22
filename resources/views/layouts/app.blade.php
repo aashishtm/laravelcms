@@ -86,7 +86,7 @@
                     <div class="col-md-3">
                         <ul class="list-unstyled">
                             <li><a href="">Post</a></li>
-                            <li><a href="">Catagories</a></li>
+                        <li><a href="{{ route('categories.index') }}">Catagories</a></li>
                         </ul>
                     </div>
                     <div class="col-md-9">
