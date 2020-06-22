@@ -73,7 +73,30 @@
         </nav>
 
         <main class="py-4">
+           <div class="container">
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+           </div>
+            @auth
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="list-unstyled">
+                            <li><a href="">Post</a></li>
+                            <li><a href="">Catagories</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                       @yield('content')
+                    </div>
+                </div>
+            </div>
+            @else
             @yield('content')
+            @endauth
         </main>
     </div>
 </body>
