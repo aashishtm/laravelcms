@@ -85,7 +85,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="">Post</a></li>
+                        <li><a href="{{ route('posts.index') }}">Post</a></li>
                         <li><a href="{{ route('categories.index') }}">Catagories</a></li>
                         </ul>
                     </div>
