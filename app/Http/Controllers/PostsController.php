@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        return view('posts.index')->with('posts', Post::all());
     }
 
     /**
@@ -36,19 +36,19 @@ class PostsController extends Controller
      */
     public function store(CreatePostsRequest $request)
     {
-//        $image = $request->image->store('posts');
+       $image = $request->image->store('posts');
 
-        dd($request->image);
-//        Post::create([
-//            'title' => $request->title,
-//            'description' => $request->description,
-//            'content' => $request->content,
-//            'image' => $image
-//        ]);
+       //dd($request->image);
+       Post::create([
+           'title' => $request->title,
+           'description' => $request->description,
+           'content' => $request->content,
+           'image' => $image
+       ]);
 
-//        session()->flash('success', 'Post Successfully Created.');
-//
-//        return redirect(route('posts.index'));
+       session()->flash('success', 'Post Successfully Created.');
+
+       return redirect(route('posts.index'));
     }
 
     /**

@@ -11,16 +11,26 @@
             <th></th>
         </thead>
         <tbody>
-
+            @foreach ($posts as $post)
             <tr>
                 <td>
-
+                    {{ $post->title }}
                 </td>
+                <td>
+                    {{ $post->description }}
+                </td>
+                <td>
+                    {{ $post->content }}
+                </td>
+                <td>
+                   <img src="{{ $post->image }}" alt="" class="img-fluid">
+                </td>
+
                 <td>
 
                 </td>
             </tr>
-
+            @endforeach
         </tbody>
     </table>
 </div>
