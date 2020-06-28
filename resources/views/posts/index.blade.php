@@ -14,6 +14,9 @@
             @foreach ($posts as $post)
             <tr>
                 <td>
+                    <img src="{{ asset($post->image) }}" width="120px" height="120px" alt="">
+                </td>
+                <td>
                     {{ $post->title }}
                 </td>
                 <td>
@@ -21,13 +24,6 @@
                 </td>
                 <td>
                     {{ $post->content }}
-                </td>
-                <td>
-                   <img src="{{ $post->image }}" alt="" class="img-fluid">
-                </td>
-
-                <td>
-
                 </td>
             </tr>
             @endforeach

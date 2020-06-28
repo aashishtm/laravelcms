@@ -36,7 +36,7 @@ class PostsController extends Controller
      */
     public function store(CreatePostsRequest $request)
     {
-       $image = $request->image->store('posts');
+       $image = $request->image->store('postsimg');
 
        //dd($request->image);
        Post::create([
