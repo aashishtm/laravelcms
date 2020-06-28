@@ -14,7 +14,7 @@
             @foreach ($posts as $post)
             <tr>
                 <td>
-                    <img src="{{ asset($post->image) }}" width="120px" height="120px" alt="">
+                    <img src="{{ asset('storage/'.$post->image) }}" width="120px" height="120px" alt="">
                 </td>
                 <td>
                     {{ $post->title }}

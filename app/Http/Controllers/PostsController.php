@@ -37,7 +37,10 @@ class PostsController extends Controller
     public function store(CreatePostsRequest $request)
     {
        $image = $request->image->store('postsimg');
-
+        // $image = $request->file('image');
+        // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+        // $destinationPath = public_path('/images');
+        // $image->move($destinationPath, $input['imagename']);
        //dd($request->image);
        Post::create([
            'title' => $request->title,
