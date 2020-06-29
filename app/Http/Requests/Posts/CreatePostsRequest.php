@@ -26,8 +26,9 @@ class CreatePostsRequest extends FormRequest
         return [
             'title' => 'required|unique:posts',
             'description' => 'required',
-            'image' => 'required| mimes:jpeg,jpg,png',
-            'memo' => 'required'
+            'image' => 'required',
+            'memo' => 'required',
+            'category_id' => 'required'
         ];
     }
 }

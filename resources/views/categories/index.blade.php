@@ -6,15 +6,20 @@
 </div>
 <div class="card card-default">
     <div class="card-header">Categories</div>
-    <table class="table card-body">
+    <table class="table card-body text-center">
         <thead>
             <th>Name</th>
+            <th>Posts</th>
+            <th>Action</th>
         </thead>
         <tbody>
             @foreach ($categories as $category)
             <tr>
                 <td>
                     {{ $category->name }}
+                </td>
+                <td>
+                    {{ $category->posts->count() }}
                 </td>
                 <td>
                     <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-primary btn-sm float-right">Edit</a>

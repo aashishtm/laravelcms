@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('memo');
             $table->string('image');
+            $table->integer('category_id');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

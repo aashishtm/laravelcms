@@ -26,7 +26,8 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'memo' => 'required'
+            'memo' => 'required',
+            'category_id' => 'required'
         ];
     }
 }

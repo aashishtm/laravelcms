@@ -7,18 +7,19 @@
 <div class="card card-default">
     <div class="card-header">Posts</div>
     @if ($posts->count()>0)
-    <table class="table card-body">
+    <table class="table card-body text-center">
         <thead>
             <th>Image</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Category</th>
             <th>Action</th>
         </thead>
         <tbody>
             @foreach ($posts as $post)
             <tr>
                 <td>
-                    <img src="{{ asset('storage/'.$post->image) }}" width="120px" height="120px" alt="">
+                    <img src="{{ asset('storage/'.$post->image) }}" width="60px" height="60px" alt="">
                 </td>
                 <td>
                     {{ $post->title }}
@@ -26,9 +27,18 @@
                 <td>
                     {{ $post->description }}
                 </td>
+                <td>
+                    {{ $post->category->name}}
+                </td>
                 <td class="btn-group">
                     @if (!$post->trashed())
-                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    @else
+                    <form action="{{ route('restore-post', $post->id) }}" method="post">
+                        @csrf
+                        @method('put')
+                        <button type='submit' class="btn btn-primary btn-sm">Restore</button>
+                    </form>
                     @endif
                 <form action="{{ route ('posts.destroy', $post->id) }}" method="post">
                     @csrf

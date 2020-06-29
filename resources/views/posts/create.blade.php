@@ -51,14 +51,31 @@
             <div class="form-group">
                 <label for="image">Image</label>
                 @if (isset($post))
-                    <img src="{{ asset('storage/'.$post->image)}}" alt="" class="img-fluid">
+                <br />
+                    <img src="{{ asset('storage/'.$post->image)}}" alt="" class="img-fluid" width='120px' height="120px">
 
                 @endif
                 <input type="file" name="image" id="image" class="form-control">
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-success"> Add Post</button>
+                <label for="category">Category</label>
+                <select name="category_id" id="category_id" class="form-control">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"
+                    @if (isset($post))
+                        @if ($category->id == $post->category_id)
+                        selected
+                        @endif
+                    @endif>
+                       {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success"> {{ isset($post) ? 'Update Post' : 'Add Post'}}</button>
             </div>
         </form>
     </div>
