@@ -9,15 +9,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -83,13 +81,16 @@
             @auth
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <ul class="list-unstyled">
                         <li><a href="{{ route('posts.index') }}">Post</a></li>
                         <li><a href="{{ route('categories.index') }}">Catagories</a></li>
                         </ul>
+                        <ul class="list-unstyled mt-5">
+                            <li><a href="{{ route('trashed-posts.index') }}">Trashed Post</a></li>
+                        </ul>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                        @yield('content')
                     </div>
                 </div>
@@ -100,10 +101,9 @@
         </main>
     </div>
 
-    <!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+
 @yield('script')
 </body>
 </html>
