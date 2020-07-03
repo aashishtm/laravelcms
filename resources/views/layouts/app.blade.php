@@ -78,10 +78,10 @@
                 </div>
             @endif
             @if (session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-        @endif
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
            </div>
             @auth
             <div class="container">
@@ -90,6 +90,7 @@
                         <ul class="list-unstyled">
                         <li><a href="{{ route('posts.index') }}">Post</a></li>
                         <li><a href="{{ route('categories.index') }}">Catagories</a></li>
+                        <li><a href="{{ route('tags.index') }}">Tags</a></li>
                         </ul>
                         <ul class="list-unstyled mt-5">
                             <li><a href="{{ route('trashed-posts.index') }}">Trashed Post</a></li>
